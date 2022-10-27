@@ -13,13 +13,13 @@ const Header = () => {
         <div><Navbar.Brand ><Link to="/" className='logo btn btn-primary'>Web Master</Link></Navbar.Brand></div>
         <div><Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="me-auto menu">
             <Nav.Link ><Link to="/courses" >Courses</Link></Nav.Link>
             <Nav.Link ><Link to="/blog">Blog</Link></Nav.Link>
+            <Nav.Link ><Link to="/faq">FAQ</Link></Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link href="#deets"><Link to="/faq"
-            >FAQ</Link></Nav.Link>
+           
           </Nav>
         </Navbar.Collapse></div>
       </Container>
