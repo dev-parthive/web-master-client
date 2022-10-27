@@ -9,17 +9,7 @@ const Main = () => {
     return (
         <div>
         <Header></Header>
-         <Container>
-        <Row>
-            <Col lg="3" className='d-none d-lg-block'>
-            <RightSideNav></RightSideNav>
-            </Col>
-            <Col lg="9">
-            <Outlet></Outlet>
-            </Col>
-            
-        </Row>
-       </Container>
+         <Outlet></Outlet>
        <Footer></Footer>
       </div>
     );
