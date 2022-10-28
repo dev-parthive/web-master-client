@@ -9,7 +9,15 @@ import './Header.css'
 import {FaUser} from  'react-icons/fa'
 const Header = () => {
 
-  const {user} = useContext(AuthContext)
+  const {user, logOut} = useContext(AuthContext)
+
+  const handleLogOut = () =>{
+    logOut()
+    .then( () => {})
+    .catch(error => console.log(error))
+  }
+
+  console.log(user)
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -23,11 +31,29 @@ const Header = () => {
             <Nav.Link ><Link to="/faq">FAQ</Link></Nav.Link>
           </Nav>
           <Nav>
+          
            <Nav.Link>
-              {user?.displayName}
+              {user?.photoURL ? <img style={{height:'40px'}} className="rounded-circle" src={user.photoURL}></img> : <FaUser></FaUser>}
            </Nav.Link>
-           <Nav.Link>
-              {user.photoURL ? <img style={{height:'40px'}} className="rounded-circle" src={user.photoURL}></img> : <FaUser></FaUser>}
+
+           <Nav.Link >
+            {
+              user?.uid? 
+              <>
+                <span>{user?.displayName}</span>
+                <button className='ms-2 btn btn-primary' onClick={handleLogOut}>Log OUt</button>
+              
+              </>
+             :
+
+              <>
+              
+                  <Link to="/login" className='text-white text-decoration-none me-3 '>Login</Link>
+                  <Link to="/register" className='text-white text-decoration-none'>Register</Link>
+              </>
+            }
+              
+
            </Nav.Link>
           </Nav>
         </Navbar.Collapse></div>

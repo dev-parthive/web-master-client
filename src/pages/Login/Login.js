@@ -6,6 +6,9 @@ import Form from 'react-bootstrap/Form';
 import {BsGoogle} from 'react-icons/bs'
 import { AuthContext } from '../../components/Context/AuthProvider';
 const Login = () => {
+
+
+  const {signIn} = useContext(AuthContext)
   const {providerLogin} = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider()
   const handleGoogleSignIN = () =>{
@@ -34,7 +37,7 @@ const Login = () => {
         <Form.Control type="password" placeholder="Password" />
       </Form.Group>
       <Button variant="primary" type="submit">
-        Submit
+        Login
       </Button>
       <p>Login with </p>
      
