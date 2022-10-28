@@ -6,7 +6,7 @@ const RightSideNav = ({course}) => {
     return (
         <div>
            <ul >
-            <li><Link to={course.id}>{course.name}</Link></li>
+            <li style={{marginBottom: '20px'}}><Link to={`/course/${course.id}`} style={{textDecoration:'none', color:'black', padding:'10px', background: 'orange', borderRadius:'8px', }}>{course.name}</Link></li>
            </ul>
             
         </div>

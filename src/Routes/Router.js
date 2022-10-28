@@ -1,3 +1,4 @@
+import CourseDetails from "../pages/CourseDetails/CourseDetails";
 import Courses from "../pages/Courses/Courses";
 import FAQ from "../pages/FAQ/FAQ";
 
@@ -25,6 +26,10 @@ export const routs = createBrowserRouter([
             },{
                 path: '/faq',
                 element: <FAQ></FAQ>
+            },
+            {
+                path: '/course/:id',
+                element: <CourseDetails></CourseDetails>
             }
         ]
     },
