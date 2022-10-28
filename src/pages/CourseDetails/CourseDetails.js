@@ -7,7 +7,7 @@ const   CourseDetails = () => {
     
 //    const [course, setCourse] = useState({})
 //    useEffect( ()=>{
-//     fetch('http://localhost:5000/course')
+//     fetch('https://web-master-server-mu.vercel.app/course')
 //     .then(res => res.json)
 //     .then(data => console.log(data))
 //    } , [])

@@ -9,15 +9,15 @@ import './Courses.css'
 const Courses = () => {
     const  [courses, setCourses] = useState([])
     useEffect( ()=>{
-        fetch('http://localhost:5000/courses')
+        fetch('https://web-master-server-mu.vercel.app/courses')
         .then(res => res.json())
         .then(data =>setCourses(data))
     }, [])
     return (
         <div>
-           <h2 className='text-center text-primary p-5'> Available courses {courses.length}</h2>
+           <h2 className='text-center text-warning p-5'> Available courses {courses.length}</h2>
         
-        <div className='d-flex'>
+        <div className='d-flex container'>
         <div className='course-card-container'>
        {
             

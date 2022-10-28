@@ -30,7 +30,7 @@ export const routs = createBrowserRouter([
             {
                 path: '/course/:id',
                 element: <CourseDetails></CourseDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/course/${params.id}`)
+                loader: ({params}) => fetch(`https://web-master-server-mu.vercel.app/course/${params.id}`)
             }
         ]
     },
