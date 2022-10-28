@@ -1,11 +1,12 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {BsGoogle} from 'react-icons/bs'
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import {GoMarkGithub} from 'react-icons/go'
 import { AuthContext } from '../../components/Context/AuthProvider';
 
 
@@ -15,9 +16,16 @@ const Login = () => {
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
 
+  const location = useLocation()
+
+  const from = location.sate?.from?.pathname || '/courses'
+
+
+
   const {signIn} = useContext(AuthContext)
   const {providerLogin} = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider()
+  const gthubProvider = new GithubAuthProvider();
 
   const handleSubmti = (event) =>{
      event.preventDefault()
@@ -31,7 +39,7 @@ const Login = () => {
       console.log(user)
       form.reset()
       setError('')
-      navigate('/courses')
+      navigate(from, {replace: true})
 
     })
     .catch(error => {
@@ -51,7 +59,19 @@ const Login = () => {
     })
     .catch(error => {
       console.log(error)
-      
+      setError(error.message)
+
+    })
+  }
+  const handleGithubSignIn = () =>{
+    providerLogin(gthubProvider)
+    .then(restult =>{
+      const user = restult.user;
+      console.log(user)
+    })
+    .catch(error => {
+      console.log(error)
+      setError(error.message)
 
     })
   }
@@ -75,12 +95,17 @@ const Login = () => {
         Login
       </Button>
       <br />
+     <p>If you new to this website ?  <NavLink to="/register">Register</NavLink></p>
+      <br />
       <p className='text-center text-danger'>{error}</p>
       <p className='text-center'>-------------Login with----------- </p>
      
     </Form>
     <div >
-        <span className='mx-auto w-100'><button  onClick={handleGoogleSignIN}><BsGoogle></BsGoogle></button></span>
+        <div className='d-flex  justify-content-center'>
+        <span className=''><button  onClick={handleGoogleSignIN}><BsGoogle></BsGoogle></button></span>
+        <span className=''><button onClick={handleGithubSignIn} className='border-1 ms-4'><GoMarkGithub></GoMarkGithub></button></span>
+        </div>
       </div>
         </div>
     );

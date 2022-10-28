@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { BsGoogle } from 'react-icons/bs';
 import {GoMarkGithub} from 'react-icons/go'
+import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../../components/Context/AuthProvider';
 const Register = () => {
     const {user, setUser, createUser} = useContext(AuthContext)
@@ -64,6 +65,8 @@ const Register = () => {
  <Button  variant="primary" type="submit">
    Register
  </Button>
+
+ <p>Already have an account? <NavLink to="/login">Login</NavLink></p>
 
 </Form>
         <div>

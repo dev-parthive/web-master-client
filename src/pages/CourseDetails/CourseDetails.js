@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { NavLink, useLoaderData } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 const   CourseDetails = () => {
@@ -21,7 +21,7 @@ const   CourseDetails = () => {
         <Card.Text>
           {course.details}
         </Card.Text>
-        <Button variant="primary">Enroll Now</Button>
+        <Button variant="primary" ><NavLink to="/purchase" className="text-white text-decoration-none">Enroll Now</NavLink></Button>
       </Card.Body>
     </Card>
         </div>
