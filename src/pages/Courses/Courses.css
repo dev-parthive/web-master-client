@@ -1,0 +1,10 @@
+.course-card-container{
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.right-side-nav-container{
+    background-color: #dddd;
+    /* height: 70%; */
+    padding: 20px;
+}

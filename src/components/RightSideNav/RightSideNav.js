@@ -1,9 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import './RightSideNav.css'
 
-const RightSideNav = () => {
+const RightSideNav = ({course}) => {
     return (
         <div>
-            This is right side nav 
+           <ul >
+            <li><Link to={course.id}>{course.name}</Link></li>
+           </ul>
             
         </div>
     );
