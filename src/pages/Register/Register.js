@@ -1,4 +1,5 @@
 import userEvent from '@testing-library/user-event';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
@@ -9,8 +10,11 @@ import {GoMarkGithub} from 'react-icons/go'
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../../components/Context/AuthProvider';
 const Register = () => {
-    const {user, setUser, createUser} = useContext(AuthContext)
-    const [error, setError] = useState('')
+    const {user, setUser, createUser, providerLogin} = useContext(AuthContext)
+    const [error, setError] = useState('');
+    const googleProvider = new GoogleAuthProvider();
+    const gthubProvider = new GithubAuthProvider
+
     const handleSubmit = event =>{
 
         event.preventDefault();
@@ -35,7 +39,30 @@ const Register = () => {
         })
     } 
 
-
+    const handleGoogleSignIN = () =>{
+        providerLogin(googleProvider)
+        .then(restult =>{
+          const user = restult.user;
+          console.log(user)
+        })
+        .catch(error => {
+          console.log(error)
+          setError(error.message)
+    
+        })
+      }
+      const handleGithubSignIn = () =>{
+        providerLogin(gthubProvider)
+        .then(restult =>{
+          const user = restult.user;
+          console.log(user)
+        })
+        .catch(error => {
+          console.log(error)
+          setError(error.message)
+    
+        })
+      }
 
     return (
         <div className='w-50 ' style={{margin:'0px auto', marginTop:'20px', border: '2px solid black', padding:'30px'}}>
@@ -74,8 +101,8 @@ const Register = () => {
             <span>-----------</span> <span>Register using</span> <span>---------------</span>
             </div>
             <div className='d-flex  justify-content-center'>
-            <span><button className='border-1 me-4'><BsGoogle></BsGoogle></button></span>
-            <span><button className='border-1'><GoMarkGithub></GoMarkGithub></button></span>
+            <span><button onClick={handleGoogleSignIN} className='border-1 me-4'><BsGoogle></BsGoogle></button></span>
+            <span><button onClick={handleGithubSignIn} className='border-1'><GoMarkGithub></GoMarkGithub></button></span>
             </div>
         </div>
    </div>
