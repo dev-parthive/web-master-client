@@ -3,7 +3,12 @@ import React from 'react';
 const PurechaseCourse = () => {
     return (
         <div>
-            <h3>This is course purchase page</h3>
+           <div className="card">
+            <h3>FREE</h3>
+            <div>
+                <ul></ul>
+            </div>
+           </div>
         </div>
     );
 };
