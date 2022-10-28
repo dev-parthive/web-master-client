@@ -6,7 +6,7 @@ const Course = ({course}) => {
     console.log(course)
     
     return (
-        <div className='ms-3 mb-4'>
+        <div className='ms-3 mb-4' >
              <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={course.img} />
       <Card.Body>
