@@ -1,0 +1,19 @@
+
+
+.card{
+    width: 40%;
+}
+
+@media only screen and (max-width: 600px) {
+    .card-container{
+        display: flex;
+        flex-direction: column;
+
+    }
+    .card{
+        width: 100% !important   ;
+        
+        
+        /* padding: 0; */
+    }
+  }
