@@ -1,6 +1,7 @@
 import CourseDetails from "../pages/CourseDetails/CourseDetails";
 import Courses from "../pages/Courses/Courses";
 import FAQ from "../pages/FAQ/FAQ";
+import Login from "../pages/Login/Login";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../layouts/Main");
@@ -31,6 +32,9 @@ export const routs = createBrowserRouter([
                 path: '/course/:id',
                 element: <CourseDetails></CourseDetails>,
                 loader: ({params}) => fetch(`https://web-master-server-mu.vercel.app/course/${params.id}`)
+            },{
+                path: '/login',
+                element: <Login></Login>
             }
         ]
     },
