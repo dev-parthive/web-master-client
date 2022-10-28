@@ -15,13 +15,24 @@
     
     
 @media only screen and (max-width: 600px) {
+    .container{
+        display: flex;
+        justify-content: space-around;
+    }
     .course-card-container{
-        width: 50vw;
+        width: 50%;
         display: grid;
         grid-template-columns: repeat(1, 1fr);
     }
     .right-side-nav-container{
-        display: none;
+        width: 40%;
+
+        padding: 20px 10px;
+        
+    }
+    .right-side-nav-container ul li{
+        font-size: 13px;
+        margin-bottom: 20px;
     }
     
     
