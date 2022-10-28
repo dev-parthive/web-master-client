@@ -1,5 +1,6 @@
 import userEvent from '@testing-library/user-event';
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -8,7 +9,7 @@ import {GoMarkGithub} from 'react-icons/go'
 import { AuthContext } from '../../components/Context/AuthProvider';
 const Register = () => {
     const {user, setUser, createUser} = useContext(AuthContext)
-
+    const [error, setError] = useState('')
     const handleSubmit = event =>{
 
         event.preventDefault();
@@ -25,9 +26,11 @@ const Register = () => {
             const user =  result.user;
             console.log(user)
             setUser(user)
+            setError('')
         })
         .catch( error =>{
             console.log(error)
+            setError(error.message)
         })
     } 
 
@@ -56,6 +59,8 @@ const Register = () => {
    <Form.Label>Password</Form.Label>
    <Form.Control name="password" type="password" placeholder="Password" />
  </Form.Group>
+
+ <p className='text-center text-danger'>{error}</p>
  <Button  variant="primary" type="submit">
    Register
  </Button>
