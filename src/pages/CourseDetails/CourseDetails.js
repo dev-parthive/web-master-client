@@ -17,6 +17,7 @@ const   CourseDetails = () => {
       <Card.Img variant="top" src={course.img}/>
       <Card.Body>
         <Card.Title>{course.name}</Card.Title>
+        <p>Author: {course.author}</p>
         <Card.Text>
           {course.details}
         </Card.Text>
